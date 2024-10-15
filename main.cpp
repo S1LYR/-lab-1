@@ -3,8 +3,12 @@
 #include <string>
 #include <map>
 
+
 using namespace std;
-int sumLastNums(int x) {return (x%10 + x / 10 % 10);}
+int sumLastNums(int x) {
+
+    return abs(x%10 + x / 10 % 10);
+}
 
 bool isPositive(int x) {
     if (x > 0) {return 1;}
@@ -137,10 +141,20 @@ void guessGame() {
     r = rand()%10;
     cout << "Угадайте число от 0 до 10: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     while (x != r) {
         cout << "Не правильно! Подумай лучше!" << endl;
         cout << "Угадайте число от 0 до 10: ";
         cin >> x;
+        if(cin.fail()) {
+            cin.clear();
+            cin.ignore();
+            cout << "Неверный ввод!!!" << endl;
+            break;}
     }
     cout << "Получилось! Это число - " << r << endl;
 }
@@ -234,18 +248,33 @@ int main() {
     cout << "Введите число: ";
     int x;
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: "<< sumLastNums(x) << endl;
 
     cout << "№4 Есть ли позитив" << endl;
     cout << "Дана сигнатура функции: bool isPositive (intx). Необходимо реализовать функцию таким образом, чтобы она принимала число x и возвращала true, если оно положительное" << endl;
     cout << "Введите число: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << boolalpha << isPositive(x)  << endl;
 
     cout << "№6 Большая буква" << endl;
     cout << "Дана сигнатура функции: bool isUpperCase (char x); Необходимо реализовать функцию таким образом, чтобы она принимала символ x и возвращала true, если это большая буква в диапазоне от ‘A’ до ‘Z’. " << endl;
     char xc;
     cin >> xc;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << boolalpha << isUpperCase(xc) << endl;
 
     cout << "№8 Делитель" << endl;
@@ -263,6 +292,11 @@ int main() {
     cout << "Дана сигнатура функции: int lastNumSum(int a, int b) Необходимо реализовать функцию таким образом, чтобы она считала сумму цифр двух чисел из разряда единиц. Выполните с его помощью последовательное сложение пяти чисел и результат выведите на экран. Постарайтесь выполнить задачу, используя минимально возможное количество вспомогательных переменных." << endl;
     cout << "Введите число: ";
     cin >> a;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     for (int i = 1; i<6; i++) {
         cout << "Введите " << i << " число для суммы: ";
         cin >> b;
@@ -275,16 +309,36 @@ int main() {
     int y;
     cout << "Введите делимое: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Введите делитель: ";
     cin >> y;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << safeDiv(x, y) << endl;
 
     cout << "№4 Строка сравнения" << endl;
     cout << "Дана сигнатура функции: String makeDecision (int x, int y) Необходимо реализовать функцию таким образом, чтобы она возвращала строку,которая включает два принятых функцией числа и корректно выставленный знак операции сравнения (больше, меньше, или равно). " << endl;
     cout << "Введите первое число: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Введите второе число: ";
     cin >> y;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << makeDecision(x, y) << endl;
 
     cout << "№6 Тройная сумма" << endl;
@@ -293,22 +347,47 @@ int main() {
     cin >> x;
     cout << "Введите второе число: ";
     cin >> y;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     int z;
     cout << "Введите третье число: ";
     cin >> z;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << boolalpha << sum3(x, y, z) << endl;
 
     cout << "№8 Возраст." << endl;
     cout << "Дана сигнатура функции: String age (int x); Необходимо реализовать функцию таким образом, чтобы она возвращала строку, в которой сначала будет число х, а затем одно из слов: • год • года • лет" << endl;
     cout << "Введите число: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << age(x) << endl;
 
     cout << "№10 Вывод дней недели" << endl;
     cout << "Дана сигнатура функции: void printDays (String x); В качестве параметра функция принимает строку, в которой записано название дня недели. Необходимо реализовать функцию таким образом, чтобы она выводила на экран название переданного в него дня и всех последующих до конца недели дней. Если в качестве строки передан не день, то выводится текст “это не день недели”. Первый день понедельник, последний – воскресенье. Вместо if в данной задаче используйте switch." << endl;
     string xs;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Введите день недели: ";
     cin >> xs;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << endl;
     printDays(xs);
 
@@ -318,6 +397,11 @@ int main() {
     cout << "Дана сигнатура функции: String reverseListNums (int x); Необходимо реализовать функцию таким образом, чтобы она возвращала строку, в которой будут записаны все числа от x до 0 (включительно)."<< endl;
     cout << "Введите число: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << reverseListNums(x) << endl;
 
 
@@ -326,9 +410,18 @@ int main() {
 
     cout << "Введите число: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Введите степень: ";
     cin >> y;
-
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << pow(x, y) << endl;
 
     cout << "№6 Одинаковость."<< endl;
@@ -336,12 +429,22 @@ int main() {
 
     cout << "Введите число: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: " << boolalpha << equalNum(x) << endl;
 
     cout << "№8 Левый треугольник."<< endl;
     cout << "Дана сигнатура функции: void leftTriangle (int x); Необходимо реализовать функцию таким образом, чтобы она выводила на экран треугольник из символов ‘*’ у которого х символов в высоту, а количество символов в ряду совпадает с номером строки."<< endl;
     cout << "Введите высоту треугольника: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Результат: "<< endl;
     leftTriangle(x);
 
@@ -360,6 +463,11 @@ int main() {
     cout << endl;
     cout << "Введите искомое число: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Индекс искомого числа: "<< findLast(arr, x) << endl;
 
     cout << "№4 Добавление в массив. "<< endl;
@@ -373,9 +481,19 @@ int main() {
     }
     cout << "Введите новый элемент массива: ";
     cin >> x;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << endl;
     cout << "Введите позицию нового элемента массива: ";
     cin >> pos;
+    if(cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        cout << "Неверный ввод!!!" << endl;
+        break;}
     cout << "Итоговый массив: " << endl;
     add(arr2, x, pos);
     cout << endl;
